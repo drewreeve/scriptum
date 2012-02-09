@@ -2,7 +2,7 @@ module Scriptum
   class Blog < Base
     
     get '/' do
-      "Hello World"
+      mustache :index
     end
     
   end

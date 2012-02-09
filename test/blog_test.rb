@@ -7,4 +7,3 @@ class BlogTest < AcceptanceTestCase
     assert_match /Hello World/, page.body
   end
 end
-
