@@ -1,10 +1,10 @@
 ENV['RACK_ENV'] = 'test'
 require File.dirname(__FILE__) + '/../init'
-require 'test/unit'
+require 'minitest/autorun'
 require 'capybara/dsl'
 require 'rack/test'
 
-class AcceptanceTestCase < Test::Unit::TestCase
+class AcceptanceTestCase < MiniTest::Unit::TestCase
   include Capybara::DSL
   
   def setup  

@@ -6,6 +6,6 @@ gem "rake"
 
 group :test do
   gem "capybara"
-  gem 'guard-test'
+  gem 'guard-minitest'
   gem 'ruby_gntp'
 end
