@@ -1,5 +1,5 @@
 ENV['RACK_ENV'] = 'test'
-require File.dirname(__FILE__) + '/../init'
+require_relative '../init'
 require 'minitest/autorun'
 require 'capybara/dsl'
 require 'rack/test'

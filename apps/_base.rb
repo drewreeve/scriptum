@@ -1,10 +1,8 @@
-$:.unshift File.expand_path("../..", __FILE__)
-
 module Scriptum
   
   class Base < Sinatra::Base
     register Mustache::Sinatra
-    require 'views/layout'
+    require_relative '../views/layout'
     
     set :root, File.expand_path("../..", __FILE__)
     enable :method_override
