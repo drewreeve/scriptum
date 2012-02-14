@@ -6,6 +6,10 @@ app = Rack::Builder.new do
     run Scriptum::Blog
   end
   
+  map "/admin" do
+    run Scriptum::Admin
+  end
+  
 end
 
 run app

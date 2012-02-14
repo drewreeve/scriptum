@@ -2,15 +2,7 @@ module Scriptum
   class Blog
     module Views
       class Layout < Mustache
-      
-        def title
-          if @title
-            "#{@title} ~ Scriptum"
-          else
-            "Scriptum"
-          end
-        end
-      
+        include Scriptum::Helpers
       end
     end  
   end
