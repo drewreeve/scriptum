@@ -1,5 +1,5 @@
 module Scriptum
-  class Admin
+  class AdminApp
     module Views
       class Index < Layout
       end

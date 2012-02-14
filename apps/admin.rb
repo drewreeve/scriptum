@@ -1,5 +1,5 @@
 module Scriptum
-  class Admin < Base
+  class AdminApp < Base
     
     require_relative '../views/admin/layout'
     

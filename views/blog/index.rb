@@ -1,5 +1,5 @@
 module Scriptum
-  class Blog
+  class BlogApp
     module Views
       class Index < Layout
       end

@@ -1,5 +1,5 @@
 module Scriptum
-  class Blog < Base
+  class BlogApp < Base
     
     require_relative '../views/blog/layout'
     

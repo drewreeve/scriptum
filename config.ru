@@ -3,11 +3,11 @@ require './init'
 app = Rack::Builder.new do
   
   map "/" do
-    run Scriptum::Blog
+    run Scriptum::BlogApp
   end
   
   map "/admin" do
-    run Scriptum::Admin
+    run Scriptum::AdminApp
   end
   
 end
