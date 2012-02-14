@@ -1,6 +1,8 @@
 module Scriptum
-  module Views
-    class Index < Layout
-    end
+  class Blog
+    module Views
+      class Index < Layout
+      end
+    end  
   end
 end
