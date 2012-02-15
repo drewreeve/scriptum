@@ -9,3 +9,8 @@ Rake::TestTask.new(:test) do |test|
   test.pattern = 'test/**/*_test.rb'
   test.verbose = true
 end
+
+desc "Load app into IRB."
+task :console do
+  exec "irb -I. -rinit"
+end
