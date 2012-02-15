@@ -10,6 +10,10 @@ module Scriptum
       :templates => settings.root + '/templates'
     }
     
+    before do
+      cache_control :private, :must_revalidate, :max_age => 0
+    end
+    
   end
 
 end
