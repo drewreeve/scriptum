@@ -3,6 +3,8 @@ require_relative '../init'
 require 'minitest/autorun'
 require 'capybara/dsl'
 require 'rack/test'
+require 'factory_girl'
+require 'factories'
 
 class AcceptanceTestCase < MiniTest::Unit::TestCase
   include Capybara::DSL

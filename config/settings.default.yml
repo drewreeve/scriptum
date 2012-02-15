@@ -1,0 +1,8 @@
+development:
+  database: scriptum_dev
+
+test:
+  database: scriptum_test
+
+production:
+  database: scriptum

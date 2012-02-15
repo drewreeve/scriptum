@@ -10,4 +10,5 @@ group :test do
   gem "capybara", "1.1.2"
   gem 'guard-minitest', "0.4.0"
   gem 'ruby_gntp', "0.3.4"
+  gem "factory_girl", "2.5.2"
 end
