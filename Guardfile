@@ -1,10 +1,10 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-guard :minitest do
+guard :rspec, :cli => "--color --format nested --fail-fast" do
   # watch(%r{^lib/(.+)\.rb$})     { |m| "test/#{m[1]}_test.rb" }
-  watch(%r{^test/.+_test\.rb$})
-  watch('test/test_helper.rb')  { "test" }
-  watch('config.ru')  { "test" }
-  watch(%r{^apps/.+\.rb$}) { "test" }
+  watch(%r{^spec/.+_spec\.rb$})
+  watch('spec/spec_helper.rb')  { "spec" }
+  watch('config.ru')  { "spec" }
+  watch(%r{^apps/.+\.rb$}) { "spec" }
 end
