@@ -5,6 +5,7 @@ gem "mustache", "0.99.4", :require => 'mustache/sinatra'
 gem "rake", "~> 0.9.2"
 gem "mongo_mapper", "0.11.0"
 gem "bson_ext", "1.5.2"
+gem "bcrypt-ruby", "3.0.1", :require => 'bcrypt'
 
 group :test do
   gem "rspec", "2.8.0"
