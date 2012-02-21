@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="span6 offset3">
+        <form action="/sessions/create" method="post" id="login-form" class="well">
+            <fieldset>
+                <legend>Sign In</legend>
+                
+                <% flash.keys.each do |k| %>
+                <div class="alert <%= "alert-#{k}" %>">
+                    <%= flash[k] %>
+                </div>
+                <% end %>
+
+                <div class="control-group">
+                    <label>Username:</label>
+                    <input name="username" class="span4" type="text">
+
+                    <label>Password:</label>
+                    <input name="password" class="span4" type="password">
+                </div>
+            </fieldset>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
+    </div>
+</div>
+

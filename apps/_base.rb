@@ -1,14 +1,23 @@
 module Scriptum
   
   class Base < Sinatra::Base
-    register Mustache::Sinatra    
+
     set :root, File.expand_path("../..", __FILE__)
     enable :method_override
     
-    set :mustache, {
-      :views => settings.root + '/views',
-      :templates => settings.root + '/templates'
-    }
+    use Rack::Session::Cookie,
+      :secret => Config['secret']
+    
+    use Rack::Flash, :sweep => true
+    
+    helpers Scriptum::Auth
+    helpers Scriptum::Helpers
+    
+    helpers do
+      def find_template(views, name, engine, &block)
+        Array(views).each { |view| super(view, name, engine, &block) }
+      end
+    end
     
     before do
       cache_control :private, :must_revalidate, :max_age => 0

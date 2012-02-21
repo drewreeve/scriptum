@@ -1,15 +1,14 @@
 module Scriptum
   class AdminApp < Base
     
-    require_relative '../views/admin/layout'
+    set :views, ["views/admin"]
     
-    set :mustache, {
-      :views => settings.root + '/views/admin',
-      :templates => settings.root + '/templates/admin'
-    }
+    before do
+      require_authentication
+    end
     
     get '/' do
-      mustache :index
+      erb :index
     end
     
   end

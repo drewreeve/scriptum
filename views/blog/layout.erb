@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title><%= page_title %></title>
+</head>
+<body>
+    <% flash.keys.each do |k| %>
+        <p id="flash" class="<%= k %>"><%= flash[k] %></p>
+    <% end %>
+    
+    <%= yield %>
+</body>
+</html>

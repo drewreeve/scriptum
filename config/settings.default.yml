@@ -1,8 +1,14 @@
+DEFAULTS: &DEFAULTS
+  secret: change to something long and random
+
 development:
   database: scriptum_dev
+  <<: *DEFAULTS
 
 test:
   database: scriptum_test
+  <<: *DEFAULTS
 
 production:
   database: scriptum
+  <<: *DEFAULTS

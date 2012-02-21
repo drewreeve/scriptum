@@ -1,7 +1,7 @@
 module Scriptum
   module Helpers
     
-    def title
+    def page_title
       if @title
         "#{@title} ~ Scriptum"
       else

@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class User
   include MongoMapper::Document
   

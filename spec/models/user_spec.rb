@@ -41,4 +41,5 @@ describe User do
     u = Factory.create(:user, :username => 'dude', :password => 'mypass')
     User.authenticate('dude', 'mypass').should == u
   end
+
 end
