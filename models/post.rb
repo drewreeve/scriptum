@@ -11,6 +11,8 @@ class Post
   
   before_save :generate_slug
   
+  @@markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+  
   protected
   
   def generate_slug
@@ -22,4 +24,9 @@ class Post
     
     self.slug = formatted_slug
   end
+  
+  def markdown
+    @@markdown
+  end
+  
 end

@@ -8,3 +8,7 @@ end
 Factory.define(:post) do |post|
   post.sequence(:title) { |n| "My awesome post #{n}" }
 end
+
+Factory.define(:article, :class => :article, :parent => :post) do |article|
+  article.body "Some _random_ text"
+end

@@ -5,6 +5,7 @@ gem "rake", "~> 0.9.2"
 gem "mongo_mapper", "0.11.0"
 gem "bson_ext", "1.5.2"
 gem "bcrypt-ruby", "3.0.1", :require => 'bcrypt'
+gem "redcarpet", "2.1.0"
 
 group :test do
   gem "rspec", "2.8.0"
