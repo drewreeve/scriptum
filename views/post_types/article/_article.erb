@@ -1,0 +1,11 @@
+<h4>
+    <a href="<%= post_url(post) %>">
+        <%= post.title %>
+    </a>
+</h4>
+
+<span class="post-meta">
+    <%= post._type %> ~ <%= post.created_at.strftime("%d %b %Y ~ %l:%M %P") %>
+</span>
+
+<%= post.body_html %>
