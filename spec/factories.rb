@@ -12,3 +12,8 @@ end
 Factory.define(:article, :class => :article, :parent => :post) do |article|
   article.body "Some _random_ text"
 end
+
+Factory.define(:link, :class => :link, :parent => :post) do |link|
+  link.url "example.com"
+  link.description "some text"
+end
