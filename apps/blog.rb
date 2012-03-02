@@ -10,6 +10,7 @@ module Scriptum
     
     get '/post/:slug' do
       @post = Post.find_by_slug(params[:slug])
+      @page_title = @post.title
       erb :detail
     end
     

@@ -1,4 +1,5 @@
 DEFAULTS: &DEFAULTS
+  site_name: Scriptum
   secret: change to something long and random
 
 development:
