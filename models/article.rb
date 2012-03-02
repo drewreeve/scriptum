@@ -7,6 +7,8 @@ class Article < Post
   key :body,         String
   key :body_html,    String
   
+  attr_accessible :body, :excerpt
+  
   validates_presence_of :body
   
   before_save :format_content

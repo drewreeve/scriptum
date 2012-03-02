@@ -6,6 +6,8 @@ class Post
   
   timestamps!
   
+  attr_accessible :title, :slug
+  
   validates_presence_of :title
   validates_uniqueness_of :slug
   
