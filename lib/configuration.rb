@@ -1,24 +1,21 @@
+require 'yaml'
+
 module Scriptum
   module Config
-
-    root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
-    file = File.exists?("#{root}/config/settings.yml") ? 
-             "#{root}/config/settings.yml" : "#{root}/config/settings.default.yml"
-
-    unless @config
-      @config = YAML.load(ERB.new(File.new(file).read).result)[ENV['RACK_ENV']||'development']
-    end
-
+    
     def self.[](key)
-      @config[key]
-    end
+      unless @config
+        root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
 
-    def self.[]=(key, value)
-      @config[key] = value
+        @config = begin
+          YAML.load(File.read(root+"/config/settings.yml"))[ENV['RACK_ENV']||'development']
+        rescue Errno::ENOENT
+          YAML.load(File.read(root+"/config/settings.default.yml"))[ENV['RACK_ENV']||'development']
+        end
+      end
+      
+      @config[key.to_s]
     end
-
-    def self.as_hash
-      @config
-    end
+    
   end
 end
