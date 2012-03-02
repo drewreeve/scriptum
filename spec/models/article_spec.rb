@@ -12,9 +12,4 @@ describe Article do
     article.body_html.should eql("<p>some <em>text</em> using <strong>markdown</strong></p>")
   end
   
-  it "should format excerpt with markdown" do
-    article = Factory.create(:article, :excerpt => 'some _text_ using **markdown**')
-    article.excerpt_html.should eql("<p>some <em>text</em> using <strong>markdown</strong></p>")
-  end
-  
 end
