@@ -1,0 +1,129 @@
+/* @override http://scriptum.dev/css/blog.css */
+
+/* Blog Styles */
+
+html {
+    font-size: 100%;
+}
+
+body {
+    background-color: #062833;
+    color: #93a1a1;
+    font-family: sans-serif;
+    font-size: 18px;
+    line-height: 27px;
+}
+
+#wrapper {
+    margin: 0px auto;
+    width: 600px;
+    margin-top: 2em;
+}
+
+a:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+a:hover, a:active {
+  outline: 0;
+}
+
+a {
+  color: #268bd2;
+  text-decoration: none;
+}
+a:hover {
+  color: #859900;
+}
+
+p {
+    margin-bottom: 13.5px;
+    font-size: 18px;
+    line-height: 27px;
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-family: 'Droid Sans';
+    font-weight: 700;
+    text-rendering: optimizelegibility;
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 54px;
+}
+
+h2, #tumblelog li h4 {
+    font-size: 24px;
+    line-height: 54px;
+}
+
+h3 {
+    font-size: 18px;
+    line-height: 40.5px;
+}
+
+h4 {
+    font-size: 14px;
+    line-height: 27px;
+}
+
+h5 {
+    font-size: 12px;
+    line-height: 27px;
+}
+
+.post-meta {
+    color: #586e75;
+    font-size: 12px;
+    line-height: 27px;
+}
+
+#tumblelog li h4 {
+    width: 65%;
+    display: block;
+}
+
+#tumblelog li {
+    margin-bottom: 27px;
+    position: relative;
+}
+
+#tumblelog p {
+    clear:both;
+}
+
+.post-meta {
+    position: absolute;
+    right: 0px;
+    top: 14px;
+}
+
+a.visit {
+    background-color: #268bd2;
+    color: #fff;
+    border-radius: 4px;
+    padding: .25em .5em;
+}
+
+a.visit:hover {
+    background-color: #859900;
+    text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
