@@ -3,3 +3,4 @@ tmp
 tmp/**/*
 Gemfile.lock
 .bundle
+config/settings.yml
