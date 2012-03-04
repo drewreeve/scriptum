@@ -14,6 +14,10 @@ app = Rack::Builder.new do
     run Scriptum::AdminApp
   end
   
+  map "/admin/posts" do
+    run Scriptum::ManagePostsApp
+  end
+  
 end
 
 run app

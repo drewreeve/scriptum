@@ -18,5 +18,10 @@ module Scriptum
       "/post/#{post.slug}"
     end
     
+    def pagination(collection)
+      return unless collection.total_pages > 1
+      erb :_pagination, :locals => {:collection => collection}
+    end
+    
   end
 end

@@ -8,20 +8,41 @@
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <style>
+        body { padding-top: 60px; }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <% flash.keys.each do |k| %>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="/admin">Scriptum</a>
+            <div class="nav-collapse">
+                <ul class="nav">
+                    <li>
+                        <a href="#">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="/admin/posts">Posts</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <% flash.keys.each do |k| %>
         <div class="alert <%= "alert-#{k}" %>">
             <%= flash[k] %>
         </div>
-        <% end %>
+    <% end %>
                 
-        <%= yield %>
-    </div>
+    <%= yield %>
+</div>
     
-    <!-- Javascripts -->
-    <script src="/js/jquery-1.7.1.min.js"></script>
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
+<!-- Javascripts -->
+<script src="/js/jquery-1.7.1.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
