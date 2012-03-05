@@ -54,6 +54,13 @@ describe Scriptum::ManagePostsApp, :type => :request do
     page.should have_content "There was a problem"
   end
   
-  it "should delete a post"
+  it "should delete a post" do
+    post = Factory.create(:article, :title => "mytitle")
+    visit "/admin/posts"
+    click_link "Delete"
+    click_button "Delete Post"
+    page.should have_content "Post deleted"
+    Post.count.should eql(0)
+  end
   
 end

@@ -21,6 +21,7 @@
             <th>Slug</th>
             <th>Type</th>
             <th>Created At</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -34,6 +35,9 @@
                 <td><%= post.slug %></td>
                 <td><%= post._type %></td>
                 <td><%= post.created_at %></td>
+                <td>
+                    <a class="btn btn-danger btn-mini" href="/admin/posts/<%= post.slug %>/delete">Delete</a>
+                </td>
             </tr>
         <% end %>
     </tbody>

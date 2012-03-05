@@ -1,0 +1,11 @@
+<div class="row">
+    <form action="/admin/posts/<%= @post.slug %>" method="post" class="span6 offset3 well">
+        <input type="hidden" name="_method" value="delete">
+        
+        <h3>Really delete <%= @post.title %>? (this cannot be undone)</h3>
+        <br />
+        <button class="btn btn-danger">Delete Post</button>
+        <a class="btn" href="/admin/posts">Cancel</a>
+    </form>    
+</div>
+

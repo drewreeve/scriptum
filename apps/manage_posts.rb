@@ -48,6 +48,28 @@ module Scriptum
         erb :edit
       end
     end
+    
+    get '/:slug/delete' do
+      @post = Post.where(:slug => params[:slug]).first
+      if @post
+        erb :delete
+      else
+        flash[:failure] = "Post does not exist"
+        redirect to('/')
+      end
+    end
+    
+    delete '/:slug' do
+      @post = Post.where(:slug => params[:slug]).first
+      if @post
+        @post.destroy
+        flash[:success] = "Post deleted"
+        redirect to('/')
+      else
+        flash[:failure] = "Post does not exist"
+        redirect to('/')
+      end
+    end
   
   end
 end
