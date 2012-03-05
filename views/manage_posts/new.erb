@@ -5,6 +5,20 @@
         <input type="hidden" name="type" value="<%= params[:type] %>" id="type">
         
         <div id="primary" class="span7">
+            
+            <% if @post.errors.any? %>
+              <div class="alert alert-error alert-block">
+                <h4 class="alert-heading">There was a problem saving your post</h4>
+                <ul>
+                  <% @post.errors.each do |attr, msg| %>
+                    <li>
+                      <%= "#{attr.to_s.capitalize} #{msg}" %>
+                    </li>
+                  <% end %>
+                </ul>  
+              </div>
+            <% end %>
+            
             <label for="title">Title</label>
             <input id="title" class="span7" name="post[title]" value="<%= @post.title %>">
     

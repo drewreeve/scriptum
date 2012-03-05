@@ -25,6 +25,16 @@ describe Scriptum::ManagePostsApp, :type => :request do
     page.should have_content "Post created"
   end
   
+  it "should show error when creating invalid post" do
+    visit "/admin/posts"
+    click_link "Article"
+    current_path.should eql("/admin/posts/new/article")
+    fill_in "title", :with => ""
+    fill_in "body", :with => "lorem ipsum"
+    click_button "Save"
+    page.should have_content "There was a problem"    
+  end
+  
   it "should edit a post" do
     post = Factory.create(:article, :title => "mytitle")
     visit "/admin/posts"
@@ -33,6 +43,15 @@ describe Scriptum::ManagePostsApp, :type => :request do
     click_button "Save Changes"
     page.should have_content "my new title"
     page.should have_content "Post updated"
+  end
+  
+  it "should show error when updating an invalid post" do
+    post = Factory.create(:article, :title => "mytitle")
+    visit "/admin/posts"
+    click_link "mytitle"
+    fill_in "title", :with => ""
+    click_button "Save Changes"
+    page.should have_content "There was a problem"
   end
   
   it "should delete a post"
