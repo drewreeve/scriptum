@@ -19,10 +19,10 @@
             <a class="brand" href="/admin">Scriptum</a>
             <div class="nav-collapse">
                 <ul class="nav">
-                    <li>
-                        <a href="#">Dashboard</a>
+                    <li class="<%= current_page('/admin') %>">
+                        <a href="/admin">Dashboard</a>
                     </li>
-                    <li>
+                    <li class="<%= current_page('/admin/posts') %>">
                         <a href="/admin/posts">Posts</a>
                     </li>
                 </ul>

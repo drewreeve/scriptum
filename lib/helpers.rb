@@ -23,6 +23,10 @@ module Scriptum
       "/post/#{post.slug}"
     end
     
+    def current_page(path)
+      return "active" if request.script_name == path
+    end
+    
     def pagination(collection)
       return unless collection.total_pages > 1
       erb :_pagination, :locals => {:collection => collection}
