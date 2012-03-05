@@ -11,6 +11,43 @@ module Scriptum
       )
       erb :index
     end
+    
+    get '/new/:type' do
+      raise not_found unless valid_post_type?(params[:type])
+      @post = build_post(params[:type], params[:post])
+      @page_title = "New Post"
+      erb :new
+    end
+    
+    post '/' do
+      raise not_found unless valid_post_type?(params[:type])
+      @post = build_post(params[:type], params[:post])
+      
+      if @post.save
+        flash[:success] = "Post created"
+        redirect to('/')
+      else
+        @page_title = "New Post"
+        erb :new
+      end
+    end
+    
+    get '/:slug/edit' do
+      @post = Post.where(:slug => params[:slug]).first
+      @page_title = "Editing #{@post.title}"
+      erb :edit
+    end
+    
+    put '/:slug' do
+      @post = Post.where(:slug => params[:slug]).first
+      if @post.update_attributes(params[:post])
+        flash[:success] = "Post updated"
+        redirect to("/")
+      else
+        @page_title = "Edit Post"
+        erb :edit
+      end
+    end
   
   end
 end

@@ -1,4 +1,19 @@
-<h2>Manage Posts</h2>
+<div class="btn-group">
+    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+        Create new
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+        <% Post.subclasses.each do |post_type| %>
+            <li>
+                <a href="/admin/posts/new/<%= post_type.to_s.downcase %>">
+                    <%= post_type.to_s %>
+                </a>
+            </li>
+        <% end %>
+    </ul>
+</div>
+
 <table class="table table-striped">
     <thead>
         <tr>

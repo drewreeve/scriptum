@@ -1,0 +1,26 @@
+<h2>Editing: <%= @post.title %></h2>
+
+<div class="row">
+    <form action="/admin/posts/<%= @post.slug %>" method="post">
+        <input type="hidden" name="_method" value="put">
+        
+        <div id="primary" class="span7">
+            <label for="title">Title</label>
+            <input id="title" class="span7" name="post[title]" value="<%= @post.title %>">
+    
+            <%= form_template_for(@post) %>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <a class="btn" href="/admin/posts">Cancel</a>
+            </div>
+        </div>
+        
+        <div id="secondary" class="span4 offset1">
+            <div class="well">
+                <p>Secondary content</p>    
+            </div>
+        </div>
+
+    </form>    
+</div>
