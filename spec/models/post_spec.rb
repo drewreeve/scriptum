@@ -31,4 +31,9 @@ describe Post do
     b.should have_error_on(:slug).with_message("has already been taken")
   end
   
+  it "should not be published by default" do
+    post = Factory.create(:post)
+    post.should_not be_published
+  end
+  
 end

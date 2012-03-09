@@ -21,6 +21,7 @@
             <th>Title</th>
             <th>Slug</th>
             <th>Type</th>
+            <th>Status</th>
             <th>Created At</th>
             <th></th>
         </tr>
@@ -35,6 +36,7 @@
                 </td>
                 <td><%= post.slug %></td>
                 <td><%= post._type %></td>
+                <td><%= post.published? ? 'Published' : 'Draft' %></td>
                 <td><%= post.created_at %></td>
                 <td>
                     <a class="btn btn-danger btn-mini" href="/admin/posts/<%= post.slug %>/delete">Delete</a>

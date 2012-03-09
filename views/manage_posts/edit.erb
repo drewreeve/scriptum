@@ -32,7 +32,17 @@
         
         <div id="secondary" class="span4 offset1">
             <div class="well">
-                <p>Secondary content</p>    
+                
+                <input type="hidden" name="post[published]" value="false">
+                <label class="checkbox">
+                    <% if @post.published? %>
+                      <input type="checkbox" name="post[published]" value="1" checked="checked">
+                    <% else %>
+                      <input type="checkbox" name="post[published]" value="1">
+                    <% end %>
+                     Publish
+                </label>
+                
             </div>
         </div>
 

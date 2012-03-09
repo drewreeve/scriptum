@@ -4,7 +4,7 @@ module Scriptum
     set :views, ["views/blog", "views/post_types"]
     
     get '/' do
-      @posts = Post.sort(:created_at.desc).limit(10)
+      @posts = Post.where(:published => true).sort(:created_at.desc).limit(10)
       erb :index
     end
     

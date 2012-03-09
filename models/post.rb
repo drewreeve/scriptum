@@ -3,10 +3,11 @@ class Post
   
   key :title, String
   key :slug,  String
+  key :published, Boolean, :default => false
   
   timestamps!
   
-  attr_accessible :title, :slug
+  attr_accessible :title, :slug, :published
   
   validates_presence_of :title
   validates_uniqueness_of :slug
