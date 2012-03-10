@@ -3,54 +3,6 @@
 <div class="row">
     <form action="/admin/posts" method="post">
         <input type="hidden" name="type" value="<%= params[:type] %>" id="type">
-        
-        <div id="primary" class="span7">
-            
-            <% if @post.errors.any? %>
-              <div class="alert alert-error alert-block">
-                <h4 class="alert-heading">There was a problem saving your post</h4>
-                <ul>
-                  <% @post.errors.each do |attr, msg| %>
-                    <li>
-                      <%= "#{attr.to_s.capitalize} #{msg}" %>
-                    </li>
-                  <% end %>
-                </ul>  
-              </div>
-            <% end %>
-            
-            <label for="title">Title</label>
-            <input id="title" class="span7" name="post[title]" value="<%= @post.title %>">
-    
-            <%= form_template_for(@post) %>
-            
-            <div class="form-actions">
-                <button type="submit" class="btn btn-primary">Save</button>
-                <a class="btn" href="/admin/posts">Cancel</a>
-            </div>
-        </div>
-        
-        <div id="secondary" class="span4 offset1">
-            <div class="well">
-                
-                <label for="post_slug">Slug <span class="muted">letters, numbers, spaces and -'s only</span></label>
-                <input id="post_slug" class="span3" value="<%= @post.slug %>">
-
-                <label for="post_string">Tags <span class="muted">separate with commas</span></label>
-                <textarea id="post_string" name="post[tags_string]" class="span3" rows="2"><%= @post.tags_string %></textarea>
-                
-                <input type="hidden" name="post[published]" value="false">
-                <label class="checkbox">
-                    <% if @post.published? %>
-                      <input type="checkbox" name="post[published]" value="1" checked="checked">
-                    <% else %>
-                      <input type="checkbox" name="post[published]" value="1">
-                    <% end %>
-                     Publish
-                </label>
-                
-            </div>
-        </div>
-
+        <%= erb :_post_form, :layout => false %>
     </form>    
 </div>
