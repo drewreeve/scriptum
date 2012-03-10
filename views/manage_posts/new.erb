@@ -33,6 +33,9 @@
         <div id="secondary" class="span4 offset1">
             <div class="well">
                 
+                <label for="post_slug">Slug <span class="muted">letters, numbers, spaces and -'s only</span></label>
+                <input id="post_slug" class="span3" value="<%= @post.slug %>">
+
                 <label for="post_string">Tags <span class="muted">separate with commas</span></label>
                 <textarea id="post_string" name="post[tags_string]" class="span3" rows="2"><%= @post.tags_string %></textarea>
                 
