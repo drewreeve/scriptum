@@ -36,4 +36,13 @@ describe Post do
     post.should_not be_published
   end
   
+  it "should remove duplicate tags" do
+    post = Factory.create(:post, :tags_string => 'tech, web, writing, web')
+    post.tags.should == ['tech', 'web', 'writing']
+  end
+  
+  it "should return tags as a comma separated string" do
+    post = Factory.create(:post, :tags_string => 'tech, web, writing')
+    post.tags_string.should == 'tech, web, writing'
+  end
 end
