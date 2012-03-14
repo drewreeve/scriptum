@@ -47,6 +47,16 @@ span.date .day {
 	font-size: 18px;
 }
 
+div.alert {
+	color: #468847;
+	margin-bottom: 1.5em;
+	padding: .25em;
+	background-color: #dff0d8;
+	border: 1px solid #d6e9c6;
+	border-radius: 4px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
 /* Typography */
 
 a {
@@ -71,7 +81,7 @@ a.visit:hover {
 }
 
 p {
-	margin-bottom: 12px;
+	margin-bottom: 24px;
 }
 
 h1, h2, h3, h4, h5 {
@@ -117,12 +127,25 @@ em {
   	font-style: italic;
 }
 
-div.alert {
-	color: #468847;
-	margin-bottom: 1.5em;
-	padding: .25em;
-	background-color: #dff0d8;
-	border: 1px solid #d6e9c6;
+code {
+	font-size: 14px;
+	line-height: 1.5em;
+	font-family: Monaco, Consolas, monospace;
+}
+
+pre {
+	margin-bottom: 24px;
+	overflow-x: auto;
+	background: #f7f7f7;
+	border: 1px solid #f0f0f0;
+	padding: 16px;
 	border-radius: 4px;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+pre code {
+	margin-bottom: 0;
+}
+
+li.post.link p {
+	margin-bottom: 12px;
 }

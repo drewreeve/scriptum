@@ -15,7 +15,7 @@ class Post
   
   before_save :generate_slug
   
-  @@markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+  @@markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_blocks => true)
   
   def tags_string=(str)
     self.tags = str.split(",").map(&:strip).uniq
