@@ -1,1 +1,3 @@
-<%= post_template_for(@post) %>
+<div class="post <%= @post._type.to_s.downcase %>">
+    <%= post_template_for(@post, :detail) %>
+</div>

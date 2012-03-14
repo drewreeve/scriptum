@@ -1,9 +1,4 @@
-<h4>
-    <a href="<%= post_url(post) %>">
-        <%= post.title %>
-    </a>
-</h4>
-
+<h2><%= post.title %></h2>
 <span class="date">
     <span class="day"><%= post.created_at.day %></span>
     <span class="month"><%= post.created_at.strftime('%b') %></span>

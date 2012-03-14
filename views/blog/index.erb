@@ -1,6 +1,6 @@
 <ul id="tumblelog">
     <% @posts.each do |post| %>
-        <li class="<%= post._type.downcase %>">
+        <li class="post <%= post._type.downcase %>">
             <%= post_template_for(post) %>
         </li>
     <% end %>    

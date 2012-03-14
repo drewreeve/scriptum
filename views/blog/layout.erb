@@ -4,22 +4,21 @@
     <meta charset="utf-8">
     <title><%= page_title %></title>
     <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Droid+Sans:700'>
     <link rel="stylesheet" href="/css/blog.css">
 </head>
 <body>
+    
     <div id="wrapper">
-        <div id="name">
-            <h1><%= Scriptum::Config[:site_name] %></h1>
-        </div>
+        <h1><a href="/"><%= Scriptum::Config[:site_name] %></a></h1>
         
-        <div id="content">
-            <% flash.keys.each do |k| %>
-                <p id="flash" class="<%= k %>"><%= flash[k] %></p>
-            <% end %>    
-            
-            <%= yield %>
-        </div>
+        <% flash.keys.each do |k| %>
+            <div class="alert <%= "alert-#{k}" %>">
+                <%= flash[k] %>
+            </div>
+        <% end %>
+        
+        <%= yield %>
     </div>
+    
 </body>
 </html>

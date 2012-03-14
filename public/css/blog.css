@@ -1,129 +1,128 @@
 /* @override http://scriptum.dev/css/blog.css */
 
-/* Blog Styles */
-
 html {
-    font-size: 100%;
+	font-size: 100%;
 }
 
 body {
-    background-color: #062833;
-    color: #93a1a1;
-    font-family: sans-serif;
-    font-size: 18px;
-    line-height: 27px;
+	color: #5e5e5e;
+	font-size: 16px;
+	line-height: 24px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 #wrapper {
-    margin: 0px auto;
-    width: 600px;
-    margin-top: 2em;
+	width: 600px;
+	margin: 0 auto;
+	padding: 32px 72px;
 }
 
-a:focus {
-  outline: thin dotted #333;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
+#tumblelog li.post {
+	padding-bottom: 24px;
+	position: relative;
 }
-a:hover, a:active {
-  outline: 0;
+
+div.post {
+	position: relative;
 }
+
+li.post span.date, div.post span.date {
+	font-size: 13px;
+	line-height: 18px;
+	width: 48px;
+	height: 36px;
+	background: url("/img/date-bg.png") no-repeat;
+	text-align: center;
+	padding: 6px 0;
+	position: absolute;
+	left: -72px;
+	top: 0;
+}
+
+span.date .day, span.date .month {
+	display: block;
+}
+
+span.date .day {
+	font-size: 18px;
+}
+
+/* Typography */
 
 a {
-  color: #268bd2;
-  text-decoration: none;
+	color: #56a1cc;
 }
+
 a:hover {
-  color: #859900;
-}
-
-p {
-    margin-bottom: 13.5px;
-    font-size: 18px;
-    line-height: 27px;
-}
-
-em {
-    font-style: italic;
-}
-
-strong {
-    font-weight: bold;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    font-family: 'Droid Sans';
-    font-weight: 700;
-    text-rendering: optimizelegibility;
-}
-
-h1 {
-    font-size: 30px;
-    line-height: 54px;
-}
-
-h2, #tumblelog li h4 {
-    font-size: 24px;
-    line-height: 54px;
-}
-
-h3 {
-    font-size: 18px;
-    line-height: 40.5px;
-}
-
-h4 {
-    font-size: 14px;
-    line-height: 27px;
-}
-
-h5 {
-    font-size: 12px;
-    line-height: 27px;
-}
-
-.post-meta {
-    color: #586e75;
-    font-size: 12px;
-    line-height: 27px;
-}
-
-#tumblelog li h4 {
-    width: 65%;
-    display: block;
-}
-
-#tumblelog li {
-    margin-bottom: 27px;
-    position: relative;
-}
-
-#tumblelog p {
-    clear:both;
-}
-
-.post-meta {
-    position: absolute;
-    right: 0px;
-    top: 14px;
+	color: #65b453;	
 }
 
 a.visit {
-    background-color: #268bd2;
-    color: #fff;
-    border-radius: 4px;
-    padding: .25em .5em;
+	background-color: #ccc;
+	color: #5e5e5e;
+	text-decoration: none;
+	padding: 4px 8px;
+	border-radius: 3px;
 }
 
 a.visit:hover {
-    background-color: #859900;
-    text-decoration: none;
+	background-color: #56a1cc;
+	color: #fff;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  border: 0;
-  -ms-interpolation-mode: bicubic;
+p {
+	margin-bottom: 12px;
+}
+
+h1, h2, h3, h4, h5 {
+	font-weight: 200;
+	text-rendering: optimizelegibility;
+}
+
+h1 {
+	font-size: 40px;
+	line-height: 56px;
+	margin-bottom: 40px;
+}
+
+h1 a {
+	text-decoration: none;
+}
+
+li.post h2 a {
+	font-size: 32px;
+	text-decoration: none;
+}
+
+div.post h2 {
+	font-size: 32px;
+	margin-bottom: 16px;
+	color: #000;
+}
+
+h3 {
+	font-size: 24px;
+}
+
+h4 {
+	font-size: 20px;
+}
+
+strong {
+	font-weight: bold;
+	color: #000;
+}
+
+em {
+  	font-style: italic;
+}
+
+div.alert {
+	color: #468847;
+	margin-bottom: 1.5em;
+	padding: .25em;
+	background-color: #dff0d8;
+	border: 1px solid #d6e9c6;
+	border-radius: 4px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }

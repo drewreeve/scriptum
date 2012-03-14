@@ -9,9 +9,14 @@ module Scriptum
       end
     end
     
-    def post_template_for(post)
+    def post_template_for(post, template=nil)
       type = post._type.downcase
-      erb "#{type}/_#{type}".to_sym, :locals => {:post => post}
+            
+      if template
+        erb "#{type}/_#{template}".to_sym, :locals => {:post => post}
+      else
+        erb "#{type}/_#{type}".to_sym, :locals => {:post => post}
+      end
     end
     
     def form_template_for(post)
