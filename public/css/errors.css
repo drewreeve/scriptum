@@ -1,0 +1,38 @@
+/* @override http://scriptum.dev/css/errors.css */
+
+body {
+	color: #5e5e5e;
+	font-size: 24px;
+	line-height: 36px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#wrapper {
+	width: 500px;
+	margin: 0 auto;
+	padding-top: 100px;
+	text-align: center;
+}
+
+#title {
+	margin-bottom: 16px;
+}
+
+h1 {
+	font-weight: 200;
+	font-size: 96px;
+	line-height: 1;
+	color: #b94a48;
+}
+
+h1 span {
+	color: #b4b4b4;
+}
+
+a {
+	color: #56a1cc;
+}
+
+a:hover {
+	color: #65b453;	
+}

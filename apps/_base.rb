@@ -23,6 +23,11 @@ module Scriptum
       cache_control :private, :must_revalidate, :max_age => 0
     end
     
+    not_found do
+      @page_title = "404 Not Found"
+      erb :'404', :layout => false, :views => settings.root + '/views'
+    end
+    
   end
 
 end
