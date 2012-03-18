@@ -22,7 +22,9 @@
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <a class="brand" href="/admin">Scriptum</a>
+            <a class="brand" href="/admin">
+                <%= Scriptum::Config['site_name'] %>
+            </a>
             <div class="nav-collapse">
                 <ul class="nav">
                     <li class="<%= current_page('/admin') %>">
