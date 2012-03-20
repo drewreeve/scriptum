@@ -9,4 +9,9 @@
     <span class="month"><%= post.created_at.strftime('%b') %></span>
 </span>
 
-<%= post.body_html %>
+<% if post.excerpt_html %>
+  <%= post.excerpt_html %>
+  <a href="<%= post_url(post) %>" class="visit">More...</a>
+<% else %>
+  <%= post.body_html %>
+<% end %>

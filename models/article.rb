@@ -7,7 +7,7 @@ class Article < Post
   key :excerpt,      String
   key :excerpt_html, String
 
-  attr_accessible :body
+  attr_accessible :body, :excerpt
 
   validates_presence_of :body
 
