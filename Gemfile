@@ -8,9 +8,9 @@ gem "bcrypt-ruby", "3.0.1", :require => 'bcrypt'
 gem "redcarpet", "2.1.0"
 
 group :test do
-  gem "rspec", "2.8.0"
+  gem "rspec", "2.9.0"
   gem "capybara", "1.1.2"
   gem 'guard-rspec', "0.6.0"
   gem 'ruby_gntp', "0.3.4"
-  gem "factory_girl", "2.5.2"
+  gem "factory_girl", "2.6.4"
 end
