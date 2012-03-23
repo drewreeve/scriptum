@@ -1,6 +1,16 @@
 require './init'
 
-task :default => :console
+task :default => :spec
+
+begin
+  require 'rspec/core/rake_task'
+
+  desc "Run specs"
+  RSpec::Core::RakeTask.new(:spec) do |spec|
+    spec.pattern = './spec/**/*_spec.rb'
+  end
+rescue LoadError
+end
 
 desc "Load app into IRB."
 task :console do
