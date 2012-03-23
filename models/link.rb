@@ -15,7 +15,7 @@ class Link < Post
   protected
   
   def format_description
-    self.description_html = markdown.render(description).strip
+    self.description_html = markdown_to_html(description).strip
   end
   
 end

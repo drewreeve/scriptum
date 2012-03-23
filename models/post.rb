@@ -15,8 +15,6 @@ class Post
   
   before_save :generate_slug
   
-  @@markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :fenced_code_blocks => true)
-  
   def tags_string=(str)
     self.tags = str.split(",").map(&:strip).uniq
   end
@@ -37,8 +35,10 @@ class Post
     self.slug = formatted_slug
   end
   
-  def markdown
-    @@markdown
+  def markdown_to_html(text)
+    @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML,
+      :fenced_code_blocks => true)
+    @markdown.render(text)
   end
   
 end

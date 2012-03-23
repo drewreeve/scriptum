@@ -16,14 +16,14 @@ class Article < Post
   protected
 
   def format_content
-    self.body_html = markdown.render(body).strip
+    self.body_html = markdown_to_html(body).strip
     # Set excerpt to nil if not specified or removed so that an empty string
     # isn't saved in the database
     if excerpt.blank?
       self.excerpt = nil
       self.excerpt_html = nil
     else
-      self.excerpt_html = markdown.render(excerpt).strip
+      self.excerpt_html = markdown_to_html(excerpt).strip
     end
   end
 
