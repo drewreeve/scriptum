@@ -20,7 +20,7 @@ end
 namespace :users do
   desc "Create New User"
   task :add do
-    
+
     begin
       print "Username: "
       username = STDIN.gets.chomp
@@ -28,7 +28,14 @@ namespace :users do
       system "stty -echo"
       print "Password (at least 6 chars): "
       password = STDIN.gets.chomp
+      print "\nConfirm password: "
+      password_confirmation = STDIN.gets.chomp
       system "stty echo"
+
+      unless password == password_confirmation
+        print "\n\nPasswords did not match, exiting..."
+        exit
+      end
 
       u = User.new(:username => username, :password => password)
 
