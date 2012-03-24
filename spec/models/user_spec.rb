@@ -11,19 +11,19 @@ describe User do
   end
   
   it "should require a unique username" do
-    Factory.create(:user, :username => 'dude')
-    u = Factory.build(:user, :username => 'dude')
+    create(:user, :username => 'dude')
+    u = build(:user, :username => 'dude')
     u.save
     u.should have_error_on(:username).with_message("has already been taken")
   end
   
   it "should encrypt the password" do
-    u = Factory.create(:user)
+    u = create(:user)
     u.encrypted_password.should_not be_nil
   end
   
   it "should not change encrypted password when updating" do
-    Factory.create(:user, :username => "newuser")
+    create(:user, :username => "newuser")
     u = User.find_by_username("newuser")
     original_pass = u.encrypted_password
     u.save
@@ -31,14 +31,14 @@ describe User do
   end
   
   it "should re-encrypt if password has changed" do
-    u = Factory.create(:user)
+    u = create(:user)
     u.password = "newpassword"
     u.password_confirmation = "newpassword"
     expect { u.save }.to change{u.encrypted_password}
   end
   
   it "should authenticate" do
-    u = Factory.create(:user, :username => 'dude', :password => 'mypass')
+    u = create(:user, :username => 'dude', :password => 'mypass')
     User.authenticate('dude', 'mypass').should == u
   end
 

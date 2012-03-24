@@ -3,7 +3,7 @@ require_relative '../spec_helper'
 describe Scriptum::UserSessionApp, :type => :request do
   
   it "should sign me in" do
-    u = Factory.create(:user, :username => 'bob', :password => 'password')
+    u = create(:user, :username => 'bob', :password => 'password')
     visit "/sessions/new"
     fill_in 'username', :with => 'bob'
     fill_in 'password', :with => 'password'
@@ -23,7 +23,7 @@ describe Scriptum::UserSessionApp, :type => :request do
   context "when signing out" do
     
     before(:each) do
-      @user = Factory.create(:user, :username => 'bob', :password => "password")
+      @user = create(:user, :username => 'bob', :password => "password")
       visit "/sessions/new"
       fill_in 'username', :with => 'bob'
       fill_in 'password', :with => 'password'

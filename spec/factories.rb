@@ -1,21 +1,24 @@
-Factory.define(:user) do |u|
-  u.username "Bob"
-  u.password "mypass"
-  u.password_confirmation {|a| a.password}
-  u.after_create { |u| u.password = nil }
+FactoryGirl.define do
+  factory :user do
+    username "Bob"
+    password "mypass"
+    password_confirmation {|a| a.password}
+    after_create { |u| u.password = nil }
+  end
+
+  factory :post do
+    sequence(:title) { |n| "My awesome post #{n}" }
+  end
+
+  factory :article, :class => :article, :parent => :post do
+    body "Some _random_ text"
+    published true
+  end
+
+  factory :link, :class => :link, :parent => :post do
+    url "example.com"
+    description "some text"
+    published true
+  end  
 end
 
-Factory.define(:post) do |post|
-  post.sequence(:title) { |n| "My awesome post #{n}" }
-end
-
-Factory.define(:article, :class => :article, :parent => :post) do |article|
-  article.body "Some _random_ text"
-  article.published true
-end
-
-Factory.define(:link, :class => :link, :parent => :post) do |link|
-  link.url "example.com"
-  link.description "some text"
-  link.published true
-end

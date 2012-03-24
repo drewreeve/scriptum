@@ -7,8 +7,8 @@ describe Scriptum::ManagePostsApp, :type => :request do
   end
   
   it "should list posts" do
-    Factory.create(:article, :title => 'my article')
-    Factory.create(:link, :title => 'my link')
+    create(:article, :title => 'my article')
+    create(:link, :title => 'my link')
     visit "/admin/posts"
     page.should have_content 'my article'
     page.should have_content 'my link'
@@ -36,7 +36,7 @@ describe Scriptum::ManagePostsApp, :type => :request do
   end
   
   it "should edit a post" do
-    post = Factory.create(:article, :title => "mytitle")
+    post = create(:article, :title => "mytitle")
     visit "/admin/posts"
     click_link "mytitle"
     fill_in "title", :with => "my new title"
@@ -46,7 +46,7 @@ describe Scriptum::ManagePostsApp, :type => :request do
   end
   
   it "should show error when updating an invalid post" do
-    post = Factory.create(:article, :title => "mytitle")
+    post = create(:article, :title => "mytitle")
     visit "/admin/posts"
     click_link "mytitle"
     fill_in "title", :with => ""
@@ -55,7 +55,7 @@ describe Scriptum::ManagePostsApp, :type => :request do
   end
   
   it "should delete a post" do
-    post = Factory.create(:article, :title => "mytitle")
+    post = create(:article, :title => "mytitle")
     visit "/admin/posts"
     click_link "Delete"
     click_button "Delete Post"

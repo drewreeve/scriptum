@@ -13,7 +13,7 @@ Capybara.app = Rack::Server.new(:config => File.dirname(__FILE__) + '/../config.
 module SpecHelpers
   
   def sign_in_user(username='bob',pass='password')
-    u = Factory.create(:user, :username => username, :password => pass)
+    u = create(:user, :username => username, :password => pass)
     visit "/sessions/new"
     fill_in 'username', :with => username
     fill_in 'password', :with => pass
@@ -22,11 +22,12 @@ module SpecHelpers
   
 end
 
-RSpec.configure do |conf|
-  conf.include Rack::Test::Methods
-  conf.include SpecHelpers
+RSpec.configure do |config|
+  config.include Rack::Test::Methods
+  config.include SpecHelpers
+  config.include FactoryGirl::Syntax::Methods
   
-  conf.after do
+  config.after do
     MongoMapper.database.collections.select {|c| c.name !~ /system/ }.each(&:drop)
   end
 end
