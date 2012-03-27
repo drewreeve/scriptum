@@ -1,11 +1,11 @@
 module Scriptum
   module Helpers
     
-    def page_title
-      if @page_title
-        "#{@page_title} ~ #{Scriptum::Config[:site_name]}"
+    def page_title(title=nil,suffix=Scriptum::Config[:site_name])
+      if title
+        "#{title} ~ #{suffix}"
       else
-        Scriptum::Config[:site_name]
+        suffix
       end
     end
     

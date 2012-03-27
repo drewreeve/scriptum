@@ -3,6 +3,18 @@ require_relative '../spec_helper'
 describe Scriptum::Helpers do
   include Scriptum::Helpers
   
+  context "page_title" do
+
+    it "should return a title with site name" do
+      page_title("mypage").should match(/mypage/)
+    end
+
+    it "should return title with custom suffix" do
+      page_title("p", "custom suffix").should match(/custom suffix/)
+    end
+
+  end
+
   context "valid_post_type" do
     
     it "should return true if valid" do
