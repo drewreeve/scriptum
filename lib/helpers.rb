@@ -11,12 +11,7 @@ module Scriptum
     
     def post_template_for(post, template=nil)
       type = post._type.downcase
-            
-      if template
-        erb "#{type}/_#{template}".to_sym, :locals => {:post => post}
-      else
-        erb "#{type}/_#{type}".to_sym, :locals => {:post => post}
-      end
+      erb "#{type}/_#{template || type}".to_sym, :locals => { :post => post }
     end
     
     def form_template_for(post)
