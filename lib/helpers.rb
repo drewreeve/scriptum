@@ -24,7 +24,7 @@ module Scriptum
     end
     
     def current_page(path)
-      return "active" if request.script_name == path
+      "active" if request.script_name == path
     end
     
     def pagination(collection)
