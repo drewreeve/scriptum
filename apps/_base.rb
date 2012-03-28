@@ -27,6 +27,11 @@ module Scriptum
       @page_title = "404 Not Found"
       erb :'404', :layout => false, :views => settings.root + '/views'
     end
+
+    error MongoMapper::DocumentNotFound do
+      @page_title = "404 Not Found"
+      erb :'404', :layout => false, :views => settings.root + '/views/'
+    end
     
   end
 

@@ -21,5 +21,10 @@ describe Scriptum::BlogApp, :type => :request do
     visit "/post/#{a.slug}"
     page.should have_content(a.title)
   end
+
+  it "should show 404 if post not found" do
+    visit "/post/non-existent-post"
+    page.should have_content(404)
+  end
   
 end

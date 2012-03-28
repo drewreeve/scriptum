@@ -13,14 +13,14 @@ module Scriptum
     end
     
     get '/new/:type' do
-      raise not_found unless valid_post_type?(params[:type])
+      not_found unless valid_post_type?(params[:type])
       @post = build_post(params[:type], params[:post])
       @page_title = "New Post"
       erb :new
     end
     
     post '/' do
-      raise not_found unless valid_post_type?(params[:type])
+      not_found unless valid_post_type?(params[:type])
       @post = build_post(params[:type], params[:post])
       
       if @post.save
@@ -33,7 +33,7 @@ module Scriptum
     end
     
     get '/:slug/edit' do
-      @post = Post.where(:slug => params[:slug]).first
+      @post = Post.find_by_slug!(params[:slug])
       @page_title = "Editing #{@post.title}"
       erb :edit
     end
