@@ -39,7 +39,7 @@ module Scriptum
     end
     
     put '/:slug' do
-      @post = Post.where(:slug => params[:slug]).first
+      @post = Post.find_by_slug!(params[:slug])
       if @post.update_attributes(params[:post])
         flash[:success] = "Post updated"
         redirect to("/")
@@ -50,25 +50,14 @@ module Scriptum
     end
     
     get '/:slug/delete' do
-      @post = Post.where(:slug => params[:slug]).first
-      if @post
-        erb :delete
-      else
-        flash[:failure] = "Post does not exist"
-        redirect to('/')
-      end
+      @post = Post.find_by_slug!(params[:slug])
+      erb :delete
     end
     
     delete '/:slug' do
-      @post = Post.where(:slug => params[:slug]).first
-      if @post
-        @post.destroy
-        flash[:success] = "Post deleted"
-        redirect to('/')
-      else
-        flash[:failure] = "Post does not exist"
-        redirect to('/')
-      end
+      @post = Post.find_by_slug!(params[:slug])
+      flash[:success] = "Post deleted" if @post.destroy
+      redirect to('/')
     end
   
   end
