@@ -62,6 +62,19 @@ ul#tumblelog {
   	margin-left: 0;
 }
 
+.pagination {
+  overflow: hidden;
+  margin-bottom: 1.5em;
+}
+
+.pagination .newer {
+    float: right;
+}
+
+.pagination .older {
+    float: left;
+}
+
 /* Typography */
 
 a {

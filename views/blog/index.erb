@@ -1,7 +1,21 @@
 <ul id="tumblelog">
-    <% @posts.each do |post| %>
-        <li class="post <%= post._type.downcase %>">
-            <%= post_template_for(post) %>
-        </li>
-    <% end %>    
+  <% @posts.each do |post| %>
+    <li class="post <%= post._type.downcase %>">
+      <%= post_template_for(post) %>
+    </li>
+  <% end %>    
 </ul>
+
+<div class="pagination">
+  <% if @posts.next_page %>
+    <div class="older">
+      <a href="?page=<%= @posts.next_page %>">Older</a>
+    </div>
+  <% end %>
+
+  <% if @posts.previous_page %>
+    <div class="newer">
+      <a href="?page=<%= @posts.previous_page %>">Newer</a>
+    </div>
+  <% end %>
+</div>
