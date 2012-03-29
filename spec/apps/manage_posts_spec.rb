@@ -17,7 +17,6 @@ describe Scriptum::ManagePostsApp, :type => :request do
   it "should create a post" do
     visit "/admin/posts"
     click_link "Article"
-    current_path.should eql("/admin/posts/new/article")
     fill_in "title", :with => "awesome post"
     fill_in "body", :with => "lorem ipsum"
     click_button "Save"
@@ -28,7 +27,6 @@ describe Scriptum::ManagePostsApp, :type => :request do
   it "should show error when creating invalid post" do
     visit "/admin/posts"
     click_link "Article"
-    current_path.should eql("/admin/posts/new/article")
     fill_in "title", :with => ""
     fill_in "body", :with => "lorem ipsum"
     click_button "Save"

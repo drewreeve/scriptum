@@ -13,7 +13,6 @@ describe User do
   it "should require a unique username" do
     create(:user, :username => 'dude')
     u = build(:user, :username => 'dude')
-    u.save
     u.should have_error_on(:username).with_message("has already been taken")
   end
   

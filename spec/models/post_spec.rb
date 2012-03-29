@@ -5,8 +5,11 @@ require_relative '../spec_helper'
 describe Post do
   
   it "should require a title" do
-    post = build(:post, :title => "")
-    post.should have_error_on(:title).with_message("can't be blank")
+    post = build(:post)
+    [nil,"", " "].each do |invalid_title|
+      post.title = invalid_title
+      post.should have_error_on(:title).with_message("can't be blank")
+    end
   end
   
   it "should require a user" do
@@ -37,7 +40,7 @@ describe Post do
   end
   
   it "should not be published by default" do
-    post = create(:post)
+    post = build(:post)
     post.should_not be_published
   end
   
