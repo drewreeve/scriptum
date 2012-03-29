@@ -10,6 +10,10 @@ Dir['./spec/support/**/*.rb'].map {|f| require f}
 
 Capybara.app = Rack::Server.new(:config => File.dirname(__FILE__) + '/../config.ru').app
 
+# Bit hackish, but it speeds up tests massively
+BCrypt::Engine.send(:remove_const, :DEFAULT_COST)
+BCrypt::Engine.const_set(:DEFAULT_COST, 1)
+
 module SpecHelpers
   
   def sign_in_user(username='bob',pass='password')
