@@ -1,17 +1,20 @@
 class Post
   include MongoMapper::Document
   
-  key :title, String
-  key :slug,  String
+  key :title,     String
+  key :slug,      String
   key :published, Boolean, :default => false
-  key :tags, Array
+  key :tags,      Array
   
   timestamps!
   
+  belongs_to :user
+
   attr_accessible :title, :slug, :published, :tags_string
   
-  validates_presence_of :title
+  validates_presence_of   :title
   validates_uniqueness_of :slug
+  validates_presence_of   :user
   
   before_save :generate_slug
   

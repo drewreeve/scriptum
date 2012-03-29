@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    username "Bob"
+    sequence(:username) { |n| "user-#{n}" }
     password "mypass"
     password_confirmation {|a| a.password}
     after_create { |u| u.password = nil }
@@ -8,6 +8,7 @@ FactoryGirl.define do
 
   factory :post do
     sequence(:title) { |n| "My awesome post #{n}" }
+    association :user
   end
 
   factory :article, :class => :article, :parent => :post do

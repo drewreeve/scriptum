@@ -1,49 +1,51 @@
 <div class="btn-group">
-    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-        <i class="icon-pencil icon-white"></i>
-        Create new
-        <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-        <% Post.subclasses.each do |post_type| %>
-            <li>
-                <a href="/admin/posts/new/<%= post_type.to_s.downcase %>">
-                    <%= post_type.to_s %>
-                </a>
-            </li>
-        <% end %>
-    </ul>
+  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+    <i class="icon-pencil icon-white"></i>
+    Create new
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <% Post.subclasses.each do |post_type| %>
+      <li>
+        <a href="/admin/posts/new/<%= post_type.to_s.downcase %>">
+          <%= post_type.to_s %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
 </div>
 
 <table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Slug</th>
-            <th>Type</th>
-            <th>Status</th>
-            <th>Created At</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @posts.each do |post| %>
-            <tr>
-                <td>
-                    <a href="/admin/posts/<%= post.slug %>/edit">
-                        <%= post.title %>
-                    </a>
-                </td>
-                <td><%= post.slug %></td>
-                <td><%= post._type %></td>
-                <td><%= post.published? ? 'Published' : 'Draft' %></td>
-                <td><%= post.created_at %></td>
-                <td>
-                    <a class="btn btn-danger btn-mini" href="/admin/posts/<%= post.slug %>/delete">Delete</a>
-                </td>
-            </tr>
-        <% end %>
-    </tbody>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Slug</th>
+      <th>Type</th>
+      <th>Status</th>
+      <th>Author</th>
+      <th>Created At</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td>
+          <a href="/admin/posts/<%= post.slug %>/edit">
+            <%= post.title %>
+          </a>
+        </td>
+        <td><%= post.slug %></td>
+        <td><%= post._type %></td>
+        <td><%= post.published? ? 'Published' : 'Draft' %></td>
+        <td><%= post.user.username %></td>
+        <td><%= post.created_at %></td>
+        <td>
+          <a class="btn btn-danger btn-mini" href="/admin/posts/<%= post.slug %>/delete">Delete</a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <%= pagination(@posts) %>

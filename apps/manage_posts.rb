@@ -22,7 +22,7 @@ module Scriptum
     post '/' do
       not_found unless valid_post_type?(params[:type])
       @post = build_post(params[:type], params[:post])
-      
+      @post.user = current_user      
       if @post.save
         flash[:success] = "Post created"
         redirect to('/')

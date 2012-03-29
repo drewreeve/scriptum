@@ -42,4 +42,11 @@ describe User do
     User.authenticate('dude', 'mypass').should == u
   end
 
+  it "can have many posts" do
+    u = create(:user)
+    p = build(:post, :user => nil)
+    u.posts << p
+    u.reload.posts.should == [p]
+  end
+
 end

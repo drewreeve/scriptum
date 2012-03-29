@@ -9,6 +9,11 @@ describe Post do
     post.should have_error_on(:title).with_message("can't be blank")
   end
   
+  it "should require a user" do
+    post = build(:post, :user => nil)
+    post.should_not be_valid
+  end
+
   it "should generate a slug if one is not provided" do
     post = create(:post, :title => 'My Awesome Post')
     post.slug.should_not be_nil

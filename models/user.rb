@@ -6,6 +6,8 @@ class User
   key :username, String
   key :encrypted_password, String
   
+  many :posts
+
   attr_accessor :password
   attr_accessible :username, :password, :password_confirmation
   
