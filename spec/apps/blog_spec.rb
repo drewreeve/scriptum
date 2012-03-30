@@ -27,4 +27,10 @@ describe Scriptum::BlogApp, :type => :request do
     page.should have_content(404)
   end
   
+  it "should have an atom feed" do
+    create(:article, :title => 'mytitle')
+    visit "/feed"
+    page.should have_content("mytitle")
+    page.should have_xpath("//feed[@xmlns='http://www.w3.org/2005/Atom']")
+  end
 end

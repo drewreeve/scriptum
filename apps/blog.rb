@@ -14,6 +14,11 @@ module Scriptum
       @page_title = @post.title
       erb :detail
     end
+
+    get '/feed' do
+      @posts = Post.where(:published => true).sort(:created_at.desc).limit(10)
+      builder :feed
+    end
     
   end
 end
