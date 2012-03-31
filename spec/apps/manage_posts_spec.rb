@@ -61,4 +61,14 @@ describe Scriptum::ManagePostsApp, :type => :request do
     Post.count.should eql(0)
   end
   
+  it "should search posts" do
+    create(:link, :title => "other article")
+    create(:article, :title => "my great article")
+    visit "/admin/posts"
+    fill_in "query", :with => "great"
+    click_button "Search"
+    page.should have_content "my great article"
+    page.should_not have_content "other article"
+  end
+
 end

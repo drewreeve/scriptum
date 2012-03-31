@@ -26,6 +26,10 @@ class Post
     tags ? tags.join(", ") : ""
   end
   
+  def self.search(query)
+    query ? where(:title => /#{query}/i) : self
+  end
+
   protected
   
   def generate_slug

@@ -1,4 +1,4 @@
-<div class="btn-group">
+<div class="btn-group pull-left">
   <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
     <i class="icon-pencil icon-white"></i>
     Create new
@@ -13,6 +13,13 @@
       </li>
     <% end %>
   </ul>
+</div>
+
+<div class="pull-right">
+  <form class="form-inline" action="<%= url("/", false) %>" method="get">
+    <input type="text" name="query" autocomplete="off" value="<%= params[:query]%>">
+    <button type="submit" class="btn">Search</button>
+  </form>
 </div>
 
 <table class="table table-striped">
@@ -39,7 +46,7 @@
         <td><%= post._type %></td>
         <td><%= post.published? ? 'Published' : 'Draft' %></td>
         <td><%= post.user.username %></td>
-        <td><%= post.created_at %></td>
+        <td><%= post.created_at.strftime("%b %e, %Y @ %R") %></td>
         <td>
           <a class="btn btn-danger btn-mini" href="/admin/posts/<%= post.slug %>/delete">Delete</a>
         </td>

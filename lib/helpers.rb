@@ -22,7 +22,11 @@ module Scriptum
     def post_url(post)
       "/post/#{post.slug}"
     end
-    
+
+    def page_url(page_number=1)
+      "?#{escape_html(request.params.merge('page' => page_number).to_param)}"
+    end
+
     def current_page(path)
       "active" if request.script_name == path
     end

@@ -53,4 +53,11 @@ describe Post do
     post = create(:post, :tags_string => 'tech, web, writing')
     post.tags_string.should == 'tech, web, writing'
   end
+
+  it "should search post titles" do
+    create_list(:article, 3)
+    a = create(:link, :title => 'mylink')
+    Post.search('myl').to_a.should == [a]
+  end
+
 end

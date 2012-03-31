@@ -1,17 +1,17 @@
 <div class="pagination">
-    <ul>
-        <li class="<%= 'disabled' if collection.current_page == 1 %>">
-            <a href="?page=<%= collection.previous_page || 1 %>">&laquo;</a>
-        </li>
-        
-        <% for n in 1..collection.total_pages %>
-            <li class="<%= 'active' if n == collection.current_page %>">
-                <a href="?page=<%= n %>"><%= n %></a>
-            </li>
-        <% end %>
-        
-        <li class="<%= 'disabled' if collection.current_page == collection.total_pages %>">
-            <a href="?page=<%= collection.next_page || collection.total_pages %>">&raquo;</a>
-        </li>
-    </ul>
+  <ul>
+    <li class="<%= 'disabled' if collection.current_page == 1 %>">
+      <a href="<%= page_url(collection.previous_page) %>">&laquo;</a>
+    </li>
+
+    <% for n in 1..collection.total_pages %>
+      <li class="<%= 'active' if n == collection.current_page %>">
+        <a href="<%= page_url(n) %>"><%= n %></a>
+      </li>
+    <% end %>
+
+    <li class="<%= 'disabled' if collection.current_page == collection.total_pages %>">
+      <a href="<%= page_url(collection.next_page || collection.total_pages) %>">&raquo;</a>
+    </li>
+  </ul>
 </div>
