@@ -53,3 +53,9 @@ namespace :users do
     end
   end
 end
+
+namespace :db do
+  task :create_indexes do
+    Post.ensure_index [[:slug, 1]], :unique => true
+  end
+end
