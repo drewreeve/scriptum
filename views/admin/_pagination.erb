@@ -1,10 +1,16 @@
 <div class="pagination">
   <ul>
+    <% unless collection.current_page == 1 %>
+      <li>
+        <a href="<%= page_url(1) %>">First</a>
+      </li>
+    <% end %>
+
     <li class="<%= 'disabled' if collection.current_page == 1 %>">
       <a href="<%= page_url(collection.previous_page) %>">&laquo;</a>
     </li>
 
-    <% for n in 1..collection.total_pages %>
+    <% pages.each do |n| %>
       <li class="<%= 'active' if n == collection.current_page %>">
         <a href="<%= page_url(n) %>"><%= n %></a>
       </li>
@@ -13,5 +19,11 @@
     <li class="<%= 'disabled' if collection.current_page == collection.total_pages %>">
       <a href="<%= page_url(collection.next_page || collection.total_pages) %>">&raquo;</a>
     </li>
+
+    <% unless collection.current_page == collection.total_pages %>
+      <li>
+        <a href="<%= page_url(collection.total_pages) %>">Last</a>
+      </li>
+    <% end %>
   </ul>
 </div>

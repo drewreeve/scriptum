@@ -23,6 +23,7 @@ module Scriptum
       "/post/#{post.slug}"
     end
 
+    # TODO: Move these methods into a pagination class
     def page_url(page_number=1)
       "?#{escape_html(request.params.merge('page' => page_number).to_param)}"
     end
@@ -33,7 +34,15 @@ module Scriptum
     
     def pagination(collection)
       return unless collection.total_pages > 1
-      erb :_pagination, :locals => {:collection => collection}
+      erb :_pagination, :locals => {
+        :collection => collection,
+        :pages => paginate_pages(collection)
+      }
+    end
+
+    def paginate_pages(collection)
+      ary = (collection.current_page-4..collection.current_page+4).to_a
+      ary.reject { |n| !n.between?(1,collection.total_pages) }
     end
     
     def valid_post_type?(post_type)
