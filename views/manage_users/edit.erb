@@ -1,0 +1,6 @@
+<h2>Edit User</h2>
+
+<form action="/admin/users/<%= @user.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <%= erb :_user_form, :layout => false, :locals => { :user => @user } %>
+</form>

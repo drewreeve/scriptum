@@ -17,6 +17,8 @@ class User
   validates_length_of       :password, :within => 6..32, :allow_blank => true
   
   before_save :encrypt_password
+  before_destroy :check_if_last_user
+  after_destroy  :destroy_posts
   
   def self.authenticate(username, password)
     user = User.first(:conditions => {:username => username})
@@ -36,7 +38,17 @@ class User
   end
   
   def password_required?
-    !persisted? || !password.nil? || !password_confirmation.nil?
+    !persisted? || !password.blank? || !password_confirmation.blank?
   end
   
+  def check_if_last_user
+    if User.count == 1
+      errors.add(:base, "Must be at least one user present")
+      return false
+    end
+  end
+
+  def destroy_posts
+    posts.each { |post| post.destroy }
+  end
 end

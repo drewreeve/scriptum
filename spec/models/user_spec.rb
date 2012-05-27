@@ -48,4 +48,26 @@ describe User do
     u.reload.posts.should == [p]
   end
 
+  it "should delete dependent posts when destroyed" do
+    create(:user)
+    u = create(:user)
+    create(:post, :user => u)
+    u.destroy
+    Post.count.should == 0
+  end
+
+  it "should not be destroyed if the last user" do
+    u = create(:user)
+    u.destroy
+    u.errors.should_not be_empty
+    User.count.should == 1
+  end
+
+  it "should not remove users posts if destroy fails" do
+    u = create(:user)
+    create(:article, :user => u)
+    u.destroy
+    User.count.should == 1
+    Post.count.should == 1
+  end
 end

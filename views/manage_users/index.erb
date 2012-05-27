@@ -1,0 +1,22 @@
+<a class="btn btn-info" href="<%= url('/new') %>">New User</a>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Post Count</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr id="user_<%= user.username %>">
+        <td><a href="/admin/users/<%= user.id %>/edit"><%= user.username %></a></td>
+        <td class="post_count"><%= user.posts.count %></td>
+        <td>
+          <a class="btn btn-danger btn-mini" href="/admin/users/<%= user.id %>/delete" title="Delete <%= user.username %>">Delete</a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,36 @@
+<form action="<%= url("/#{@user.id}") %>" method="post" class="span6 offset3 well">
+  <input type="hidden" name="_method" value="delete">
+
+  <h3>Delete user</h3>
+
+  <br />
+
+  <% if @user.errors.has_key?(:base) %>
+    <div class="alert alert-error">
+      <%= @user.errors[:base].first %>
+    </div>
+  <% end %>
+  
+  <p>Before you delete <b><%= @user.username %></b>, what would you like to do with their posts?</p>
+
+  <label class="radio">
+    <input id="delete_posts" name="delete_user_action" type="radio" value="delete" checked />
+    Delete all posts
+  </label>
+
+  <label class="radio">
+    <input id="reassign" name="delete_user_action" type="radio" value="reassign">
+    Transfer posts to:
+  </label>
+  
+  <select name="reassign_user">
+    <% User.where(:username.ne => @user.username).each do |u| %>
+      <option value="<%= u.id %>"><%= u.username %></option>
+    <% end %>
+  </select>
+
+  <div class="form-actions">
+    <button class="btn btn-danger">Delete User</button>
+    <a class="btn" href="<%= url("/") %>">Cancel</a>
+  </div>
+</form>

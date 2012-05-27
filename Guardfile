@@ -9,4 +9,5 @@ guard :rspec do
   watch(%r{^apps/.+\.rb$}) { "spec" }
   watch(%r{^models/(.+)\.rb$}) { |m| "spec/models/#{m[1]}_spec.rb"}
   watch('spec/factories.rb') { "spec" }
+  watch(%r{^views/(.+)/(.+)\.erb$}) { |m| "spec/apps/#{m[1]}_spec.rb" }
 end
