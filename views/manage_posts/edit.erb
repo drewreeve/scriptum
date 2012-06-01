@@ -3,6 +3,6 @@
 <div class="row">
     <form action="/admin/posts/<%= @post.slug %>" method="post">
         <input type="hidden" name="_method" value="put">
-        <%= erb :_post_form, :layout => false %>
+        <%= erb :_post_form %>
     </form>    
 </div>
