@@ -2,7 +2,7 @@ xml.instruct! :xml, :version => '1.0', :encoding => 'UTF-8'
 
 xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
   xml.id "http://#{request.host_with_port}/"
-  xml.title "#{Scriptum::Config['site_name']}: Recent Posts"
+  xml.title "#{@settings.site_name}: Recent Posts"
   xml.link :href => "http://#{request.host_with_port}/"
   xml.updated @posts.first.created_at.iso8601
 
