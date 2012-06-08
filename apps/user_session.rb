@@ -4,7 +4,7 @@ module Scriptum
     set :views, ["views/user_session"]
     
     get '/new' do
-      @title = "Sign In"
+      @page_title = "Sign In"
       erb :login
     end
     
