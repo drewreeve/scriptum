@@ -17,10 +17,19 @@ module Scriptum
       def find_template(views, name, engine, &block)
         Array(views).each { |view| super(view, name, engine, &block) }
       end
+
+      def fetch_settings
+        @settings = Setting.first
+        if @settings.nil?
+          Setting.new.save
+          @settings = Setting.first
+        end
+      end
     end
     
     before do
       cache_control :private, :must_revalidate, :max_age => 0
+      fetch_settings
     end
     
     not_found do

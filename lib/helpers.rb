@@ -1,12 +1,8 @@
 module Scriptum
   module Helpers
     
-    def page_title(title=nil,suffix=Scriptum::Config[:site_name])
-      if title
-        "#{title} ~ #{suffix}"
-      else
-        suffix
-      end
+    def page_title(*args)
+      args.compact.join(" | ")
     end
     
     def post_template_for(post, template=nil)

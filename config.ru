@@ -21,6 +21,10 @@ app = Rack::Builder.new do
   map "/admin/users" do
     run Scriptum::ManageUsersApp
   end
+
+  map "/admin/settings" do
+    run Scriptum::ManageSettings
+  end
 end
 
 run app

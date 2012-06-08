@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h1>Settings</h1>
+</div>
+
+<% if @settings.errors.any? %>
+  <div class="alert alert-error alert-block">
+    <h4 class="alert-heading">There was a problem saving your settings</h4>
+    <ul>
+      <% @settings.errors.each do |attr, msg| %>
+        <li>
+          <%= "#{attr.to_s.capitalize} #{msg}" %>
+        </li>
+      <% end %>
+    </ul>  
+  </div>
+<% end %>
+
+<form action="<%= url("/") %>" method="post">
+  <input type="hidden" name="_method" value="put"/>
+
+  <label for="site_name">Site Name:</label>
+  <input id="site_name" name="setting[site_name]" value="<%= @settings.site_name %>"/>
+
+  <label for="admin_record_limit">No. of records per page in admin</label>
+  <input id="admin_record_limit" name="setting[admin_record_limit]" value="<%= @settings.admin_record_limit %>"/>
+
+  <label for="homepage_records">No. of records to show on homepage</label>
+  <input id="homepage_records" name="setting[homepage_records]" value="<%= @settings.homepage_records %>"/>
+
+  <label for="feed_records">No. of records to show in feed</label>
+  <input id="feed_records" name="setting[feed_records]" value="<%= @settings.feed_records %>"/>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Save Settings</button>
+    <a href="/admin" class="btn">Cancel</a>
+  </div>
+</form>

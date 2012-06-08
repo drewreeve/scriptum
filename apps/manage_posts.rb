@@ -7,7 +7,7 @@ module Scriptum
   
     get '/' do
       @posts = Post.search(params[:query]).sort(:created_at.desc).paginate(
-        :per_page => 15, :page => params[:page] || 1
+        :per_page => @settings.admin_record_limit, :page => params[:page] || 1
       )
       erb :index
     end

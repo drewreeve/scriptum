@@ -17,7 +17,7 @@
   <div class="navbar-inner">
     <div class="container">
       <a class="brand" href="/admin">
-        <%= Scriptum::Config['site_name'] %>
+        <%= @settings.site_name %>
       </a>
       <div class="nav-collapse">
         <ul class="nav">
@@ -29,6 +29,9 @@
           </li>
           <li class="<%= current_page('/admin/users') %>">
             <a href="/admin/users">Users</a>
+          </li>
+          <li class="<%= current_page('/admin/settings') %>">
+            <a href="/admin/settings">Settings</a>
           </li>
         </ul>
         <ul class="nav pull-right">

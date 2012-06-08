@@ -5,12 +5,12 @@ describe Scriptum::Helpers do
   
   context "page_title" do
 
-    it "should return a title with site name" do
-      page_title("mypage").should match(/mypage/)
+    it "should separate multiple arguments" do
+      page_title("b", "o", "o").should == "b | o | o"
     end
 
-    it "should return title with custom suffix" do
-      page_title("p", "custom suffix").should match(/custom suffix/)
+    it "should return single argument as string" do
+      page_title("some string").should == "some string"
     end
 
   end

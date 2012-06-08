@@ -5,7 +5,8 @@ module Scriptum
     
     get '/' do
       @posts = Post.where(:published => true).sort(:created_at.desc).
-        paginate(:per_page => 10, :page => params[:page] || 1)
+        paginate(:per_page => @settings.homepage_records,
+                 :page => params[:page] || 1)
       erb :index
     end
     
@@ -16,7 +17,8 @@ module Scriptum
     end
 
     get '/feed' do
-      @posts = Post.where(:published => true).sort(:created_at.desc).limit(10)
+      @posts = Post.where(:published => true).sort(:created_at.desc).
+        limit(@settings.feed_records)
       builder :feed
     end
     
