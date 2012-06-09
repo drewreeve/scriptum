@@ -44,7 +44,13 @@
         </td>
         <td><%= post.slug %></td>
         <td><%= post._type %></td>
-        <td><%= post.published? ? 'Published' : 'Draft' %></td>
+        <td>
+          <% if post.published? %>
+            <span class="label label-success">Published</span>
+          <% else %>
+            <span class="label">Draft</span>
+          <% end %>
+        </td>
         <td><%= post.user.username %></td>
         <td><%= post.created_at.strftime("%b %e, %Y @ %R") %></td>
         <td>
