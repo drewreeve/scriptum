@@ -3,7 +3,7 @@ FactoryGirl.define do
     sequence(:username) { |n| "user-#{n}" }
     password "mypass"
     password_confirmation {|a| a.password}
-    after_create { |u| u.password = nil }
+    after(:create) { |u| u.password = nil }
   end
 
   factory :post do
