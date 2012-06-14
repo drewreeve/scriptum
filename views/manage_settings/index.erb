@@ -30,6 +30,10 @@
   <label for="feed_records">No. of records to show in feed</label>
   <input id="feed_records" name="setting[feed_records]" value="<%= @settings.feed_records %>"/>
 
+  <label for="analytics_id">Google Analytics Tracking ID</label>
+  <input id="analytics_id" name="setting[analytics_id]" value="<%= @settings.analytics_id %>"/>
+  <span class="help-inline">e.g <code>UA-XXXXXXX-X</code></span>
+
   <div class="form-actions">
     <button type="submit" class="btn btn-primary">Save Settings</button>
     <a href="/admin" class="btn">Cancel</a>

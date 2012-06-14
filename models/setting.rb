@@ -6,8 +6,10 @@ class Setting
   key :admin_record_limit, Integer, :default => 15
   key :homepage_records, Integer, :default => 10
   key :feed_records, Integer, :default => 10
+  key :analytics_id, String
 
-  attr_accessible :site_name, :admin_record_limit, :homepage_records, :feed_records
+  attr_accessible :site_name, :admin_record_limit, :homepage_records,
+                  :feed_records, :analytics_id
 
   validates_presence_of :site_name
 
