@@ -2,7 +2,7 @@ source :rubygems
 
 gem "sinatra", "1.3.2"
 gem "rake", "~> 0.9.2"
-gem "mongo_mapper", "0.11.1"
+gem "mongo_mapper", "0.11.2"
 gem "bson_ext", "1.5.2"
 gem "bcrypt-ruby", "3.0.1", :require => 'bcrypt'
 gem "redcarpet", "2.1.1"
