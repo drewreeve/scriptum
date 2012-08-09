@@ -16,8 +16,8 @@ BCrypt::Engine.const_set(:DEFAULT_COST, 1)
 
 module SpecHelpers
   
-  def sign_in_user(username='bob',pass='password')
-    u = create(:user, :username => username, :password => pass)
+  def sign_in_user(role=:admin, username='bob',pass='password')
+    u = create(:user, role.to_sym, :username => username, :password => pass)
     visit "/sessions/new"
     fill_in 'username', :with => username
     fill_in 'password', :with => pass

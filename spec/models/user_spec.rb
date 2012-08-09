@@ -70,4 +70,10 @@ describe User do
     User.count.should == 1
     Post.count.should == 1
   end
+
+  it "should not allow roles that don't exist" do
+    u = build(:user)
+    u.role = "mynewrole"
+    u.should_not be_valid
+  end
 end

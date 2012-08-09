@@ -6,7 +6,9 @@ module Scriptum
     set :views, ["views/manage_posts", "views/admin", "views/post_types"]
   
     get '/' do
-      @posts = Post.search(params[:query]).sort(:created_at.desc).paginate(
+      @posts = Post.search(params[:query]).sort(:created_at.desc)
+      @posts = @posts.where(:user_id => current_user.id) if current_user.role == 'author'
+      @posts = @posts.paginate(
         :per_page => @settings.admin_record_limit, :page => params[:page] || 1
       )
       erb :index

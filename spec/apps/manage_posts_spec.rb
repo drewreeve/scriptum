@@ -2,16 +2,28 @@ require_relative '../spec_helper'
 
 describe Scriptum::ManagePostsApp, :type => :request do
   
+  # TODO: Split these into contexts and clean things up
   before(:each) do
     sign_in_user
   end
   
   it "should list posts" do
-    create(:article, :title => 'my article')
+    create(:article, :title => 'my article', :user => create(:user))
     create(:link, :title => 'my link')
     visit "/admin/posts"
     page.should have_content 'my article'
     page.should have_content 'my link'
+  end
+
+  it "should only list own posts if author" do
+    visit "/logout"  
+    sign_in_user(:author, "jenny", "password")
+    create(:article, :title => "other post")
+    create(:article, :title => "my post",
+           :user => User.find_by_username("jenny"))
+    visit "/admin/posts"
+    page.should_not have_content "other post"
+    page.should have_content "my post"
   end
   
   it "should create a post" do

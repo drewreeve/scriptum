@@ -5,6 +5,10 @@ module Scriptum
 
     set :views, ["views/manage_settings", "views/admin"]
 
+    before do
+      authorize! :admin
+    end
+
     get "/" do
       @page_title = "Settings"
       erb :index

@@ -30,9 +30,11 @@
           <li class="<%= current_page('/admin/users') %>">
             <a href="/admin/users">Users</a>
           </li>
-          <li class="<%= current_page('/admin/settings') %>">
-            <a href="/admin/settings">Settings</a>
-          </li>
+          <% if current_user.role?(:admin) %>
+            <li class="<%= current_page('/admin/settings') %>">
+              <a href="/admin/settings">Settings</a>
+            </li>
+          <% end %>
         </ul>
         <ul class="nav pull-right">
           <li class="divider-verticle"></li>

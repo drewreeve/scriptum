@@ -4,6 +4,18 @@ FactoryGirl.define do
     password "mypass"
     password_confirmation {|a| a.password}
     after(:create) { |u| u.password = nil }
+
+    trait :author do
+      role "author"
+    end
+
+    trait :editor do
+      role "editor"
+    end
+
+    trait :admin do
+      role "admin"
+    end
   end
 
   factory :post do

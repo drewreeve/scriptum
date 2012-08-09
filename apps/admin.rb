@@ -4,7 +4,7 @@ module Scriptum
     set :views, ["views/admin"]
     
     before do
-      require_authentication
+      authorize!
     end
     
     get '/' do

@@ -3,8 +3,11 @@ require 'securerandom'
 class User
   include MongoMapper::Document
   
+  ROLES = %w[admin editor author]
+
   key :username, String
   key :encrypted_password, String
+  key :role, String, :default => "author", :in => ROLES
   
   many :posts
 
@@ -27,6 +30,10 @@ class User
     else
       nil
     end
+  end
+
+  def role?(role)
+    self.role == role.to_s
   end
   
   protected

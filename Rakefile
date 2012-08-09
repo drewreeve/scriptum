@@ -38,6 +38,7 @@ namespace :users do
       end
 
       u = User.new(:username => username, :password => password)
+      u.role = "admin"
 
       if u.save
         print "\n User #{u.username} created successfully \n"
