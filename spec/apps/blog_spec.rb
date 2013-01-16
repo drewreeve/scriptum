@@ -1,6 +1,6 @@
 require_relative '../spec_helper'
 
-describe Scriptum::BlogApp, :type => :request do
+describe Scriptum::BlogApp, :type => :feature do
   
   it "should list tumblelog content" do
     create(:article, :title => 'my article')

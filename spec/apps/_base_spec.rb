@@ -1,6 +1,6 @@
 require_relative "../spec_helper"
 
-describe Scriptum::Base, :type => :request do
+describe Scriptum::Base, :type => :feature do
   
   it "should set cache headers" do
     visit "/"

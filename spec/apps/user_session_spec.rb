@@ -1,6 +1,6 @@
 require_relative '../spec_helper'
 
-describe Scriptum::UserSessionApp, :type => :request do
+describe Scriptum::UserSessionApp, :type => :feature do
   
   it "should sign me in" do
     u = create(:user, :username => 'bob', :password => 'password')

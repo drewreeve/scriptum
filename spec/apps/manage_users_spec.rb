@@ -1,6 +1,6 @@
 require_relative '../spec_helper'
 
-describe Scriptum::ManageUsersApp, :type => :request do
+describe Scriptum::ManageUsersApp, :type => :feature do
 
   [:author, :editor].each do |role|
     context "as #{role}" do
@@ -67,7 +67,9 @@ describe Scriptum::ManageUsersApp, :type => :request do
       user = create(:user, :username => "bill")
       visit "/admin"
       click_link "Users"
-      click_link "bill"
+      within "#user_bill td:first-child" do
+        click_link "bill"
+      end
       fill_in "username", :with => "ben"
       click_button "Save"
       page.should have_content "ben"

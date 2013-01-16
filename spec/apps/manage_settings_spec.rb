@@ -1,6 +1,6 @@
 require_relative "../spec_helper"
 
-describe Scriptum::ManageSettings, :type => :request do
+describe Scriptum::ManageSettings, :type => :feature do
 
   context "as admin" do
     before do

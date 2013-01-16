@@ -1,6 +1,6 @@
 require_relative '../spec_helper'
 
-describe Scriptum::ManagePostsApp, :type => :request do
+describe Scriptum::ManagePostsApp, :type => :feature do
   
   # TODO: Split these into contexts and clean things up
   before(:each) do
