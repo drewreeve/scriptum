@@ -2,8 +2,8 @@ source :rubygems
 
 gem "sinatra", "1.3.3"
 gem "rake", "~> 0.9.2"
-gem "mongo_mapper", "0.12.0"
-gem "bson_ext", "1.5.2"
+gem "mongo_mapper", git: "git://github.com/jnunemaker/mongomapper.git", ref: "f2186"
+gem "bson_ext", "1.8.2"
 gem "bcrypt-ruby", "3.0.1", :require => 'bcrypt'
 gem "redcarpet", "2.2.2"
 

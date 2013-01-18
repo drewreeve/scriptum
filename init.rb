@@ -4,7 +4,7 @@ Bundler.require(:default)
 Dir["./lib/*.rb"].sort.each {|req| require req}
 
 # Connect to mongodb
-MongoMapper.connection = Mongo::Connection.new(Scriptum::Config['host'], Scriptum::Config['port'])
+MongoMapper.connection = Mongo::MongoClient.new(Scriptum::Config['host'], Scriptum::Config['port'])
 MongoMapper.database = Scriptum::Config['database']
 
 # Require all models
